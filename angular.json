@@ -133,6 +133,41 @@
           }
         }
       }
+    },
+    "selectbox": {
+      "root": "projects/selectbox",
+      "sourceRoot": "projects/selectbox/src",
+      "projectType": "library",
+      "prefix": "ab",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/selectbox/tsconfig.lib.json",
+            "project": "projects/selectbox/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/selectbox/src/test.ts",
+            "tsConfig": "projects/selectbox/tsconfig.spec.json",
+            "karmaConfig": "projects/selectbox/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/selectbox/tsconfig.lib.json",
+              "projects/selectbox/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "a-bank-lib"
